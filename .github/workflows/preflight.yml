@@ -1,0 +1,17 @@
+name: Preflight
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    name: Mirror guard & checklist audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run preflight-check
+        run: sh scripts/preflight-check
