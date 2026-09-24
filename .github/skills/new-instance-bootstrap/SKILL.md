@@ -21,8 +21,8 @@ instance of the AGENTS.md protocol.
 2. **Rewrite `README.md`/`AGENTS.md`** content for the new instance if
    needed, keeping the two files byte-for-byte identical (use the
    `sync-mirrored-files` skill).
-3. **Reset `MEMORY.md`**: keep the schema section, clear the Log, and append
-   a first entry recording the bootstrap.
+3. **Keep `MEMORY.md` append-only**: preserve inherited entries and append a
+   new entry recording the bootstrap (use the `update-memory-log` skill).
 4. **Update `CATALOG.md`** in the new repo to list itself and the hub; then
    open a PR against the hub (`SM260845/AGENT.md`) adding the new instance to
    the hub's `CATALOG.md`.

@@ -54,15 +54,27 @@ if [ -d .github/skills ]; then
       bad "$name: SKILL.md missing YAML frontmatter"
       continue
     fi
-    front=$(awk 'NR==1{next} /^---$/{exit} {print}' "$skill")
-    case "$front" in
-      *name:*) : ;;
-      *) bad "$name: frontmatter missing 'name'"; continue ;;
-    esac
-    case "$front" in
-      *description:*) : ;;
-      *) bad "$name: frontmatter missing 'description'"; continue ;;
-    esac
+    awk '
+      NR == 1 { next }
+      $0 == "---" { closed=1; exit }
+      $0 ~ /^name:[[:space:]]*[^[:space:]#]/ { has_name=1 }
+      $0 ~ /^description:[[:space:]]*[^[:space:]#]/ { has_description=1 }
+      END {
+        if (!closed) exit 1
+        if (!has_name) exit 2
+        if (!has_description) exit 3
+      }
+    ' "$skill"
+    status=$?
+    if [ "$status" -ne 0 ]; then
+      case "$status" in
+        1) bad "$name: SKILL.md frontmatter is not closed with '---'" ;;
+        2) bad "$name: frontmatter missing non-empty 'name'" ;;
+        3) bad "$name: frontmatter missing non-empty 'description'" ;;
+        *) bad "$name: could not validate frontmatter" ;;
+      esac
+      continue
+    fi
     if grep -q "^| \`$name\`" SKILLS.md 2>/dev/null; then
       ok "$name: valid frontmatter, registered in SKILLS.md"
     else
