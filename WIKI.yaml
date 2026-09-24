@@ -1,0 +1,31 @@
+# WIKI.yaml — The Instance Manifest
+# Identity, scope, and configuration for this instance of the AGENT.md
+# framework. Read before touching content. Human- and agent-readable.
+
+spec:
+  name: AGENTS.md protocol
+  version: 1.0.0        # version of the checklist format this instance follows
+  source: SM260845/AGENT.md
+
+instance:
+  id: agent-md-hub
+  repo: SM260845/AGENT.md
+  role: hub             # hub = defines the spec; spoke = follows it
+  description: >-
+    Master directive repository. Defines the flight checklist, protocol,
+    skills, and federation catalog that other instances follow.
+
+scope:
+  content: agent governance framework (checklist, protocol, skills, catalog)
+  out_of_scope:
+    - application code
+    - user profile content (lives in SM260845/.github)
+
+configuration:
+  mirror:
+    files: [AGENTS.md, README.md]
+    rule: byte-for-byte identical
+  skills_dir: .github/skills
+  plugins_dir: .github/plugins
+  memory_file: MEMORY.md
+  preflight: scripts/preflight-check
