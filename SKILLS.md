@@ -49,6 +49,8 @@ Reference: [Custom skills — GitHub Docs](https://docs.github.com/copilot/how-t
 | `mirror-docs` | `.github/skills/mirror-docs/SKILL.md` | Keep `AGENTS.md` and `README.md` byte-for-byte identical during edits and review |
 | `add-skill` | `.github/skills/add-skill/SKILL.md` | Create a new skill or install one from an external skill catalog |
 | `checklist-audit` | `.github/skills/checklist-audit/SKILL.md` | Audit which flight-checklist files and support directories exist |
+| `internal-comms` | `.github/skills/internal-comms/SKILL.md` | Write internal communications (status reports, 3P updates, FAQs) — imported from [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/internal-comms) (Apache-2.0) |
+| `discernment-nudge` | `.github/skills/discernment-nudge/SKILL.md` | Nudge critical review of substantive AI output before acting on it — imported from [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/discernment-nudge) (Apache-2.0) |
 
 ## Where to find more skills
 
