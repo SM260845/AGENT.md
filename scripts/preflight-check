@@ -71,6 +71,7 @@ if [ -d .github/skills ]; then
       function has_value(line, value) {
         value = substr(line, index(line, ":") + 1)
         sub(/^[[:space:]]*/, "", value)
+        sub(/[[:space:]]*$/, "", value)
         return value != "" && value !~ /^#/ && value != "\"\"" && value != "'\'''\''"
       }
       NR == 1 { next }
