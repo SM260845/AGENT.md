@@ -58,3 +58,16 @@ Rules:
   means running the VERIFY step (`scripts/preflight-check` must pass,
   PROTOCOL.md Article III.4) and the LOG step (append the lesson here).
 - **Citation:** PROTOCOL.md:32, AGENTS.md:88-101, commits c35ac64 & 034bbb3
+
+### 2026-09-24 — Guided simulation and first external skill imports
+- **Task:** Run a guided simulation of the agent loop and experiment with
+  skills from the Claude catalog (anthropics/skills); report the results in
+  `docs/reports/2026-09-24-guided-simulation.md`.
+- **Lesson:** Claude-format skills import unmodified and pass
+  `scripts/preflight-check` (folded-scalar descriptions and extra frontmatter
+  keys included), but licensing in anthropics/skills varies per skill: only
+  import skills shipping their own Apache-2.0 `LICENSE.txt` (keep it), skip
+  unlicensed ones (e.g. `doc-coauthoring`) and the source-available document
+  skills. `internal-comms` and `discernment-nudge` are now installed.
+- **Citation:** docs/reports/2026-09-24-guided-simulation.md:1,
+  SKILLS.md:52-53, .github/skills/internal-comms/LICENSE.txt:1
