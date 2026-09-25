@@ -71,3 +71,17 @@ Rules:
   skills. `internal-comms` and `discernment-nudge` are now installed.
 - **Citation:** docs/reports/2026-09-24-guided-simulation.md:1,
   SKILLS.md:52-53, .github/skills/internal-comms/LICENSE.txt:1
+
+### 2026-09-25 — Notification-cockpit PRD v0.1 drafted
+- **Task:** Execute the operator's paste-ready PRD prompt: research Apple
+  notification platform facts and write the PRD to
+  `docs/prd/2026-09-25-notification-cockpit-prd.md`.
+- **Lesson:** developer.apple.com is unreachable from this sandbox (direct
+  fetch blocked), so Apple platform claims max out at class B
+  (search-cited); the "vacant lock-screen gesture" was disconfirmed — no
+  public API alters system notification gestures or another app's
+  notifications, so gesture invention must live on app-owned surfaces. The
+  skill contracts `files`, `reasoning-artifact`, `vision-forge` cited in the
+  operator memo are not installed in this repo.
+- **Citation:** docs/prd/2026-09-25-notification-cockpit-prd.md:1,
+  problem statement memo "User prompt, 2026-09-25"
